@@ -18,7 +18,7 @@ public class Product {
 
     @SerializedName("product_line_id")
     @Expose
-    private String productLineId;
+    private Integer productLineId;
 
     @SerializedName("product_scale")
     @Expose
@@ -42,7 +42,7 @@ public class Product {
 
     @SerializedName("msrp")
     @Expose
-    private String msrp;
+    private Float msrp;
 
     @SerializedName("image")
     @Expose
@@ -87,7 +87,7 @@ public class Product {
     /**
      * @return The productLineId
      */
-    public String getProductLineId() {
+    public Integer getProductLineId() {
         return productLineId;
     }
 
@@ -95,7 +95,7 @@ public class Product {
      * @param productLineId The product_line_id
      */
     public void setProductLineId(String productLineId) {
-        this.productLineId = productLineId;
+        this.productLineId = Integer.parseInt(productLineId);
     }
 
     /**
@@ -150,8 +150,8 @@ public class Product {
     /**
      * @param quantityInStock The quantity_in_stock
      */
-    public void setQuantityInStock(Float quantityInStock) {
-        this.quantityInStock = quantityInStock;
+    public void setQuantityInStock(String quantityInStock) {
+        this.quantityInStock = Float.parseFloat(quantityInStock);
     }
 
     /**
@@ -164,14 +164,14 @@ public class Product {
     /**
      * @param price The price
      */
-    public void setPrice(Float price) {
-        this.price = price;
+    public void setPrice(String price) {
+        this.price = Float.parseFloat(price);
     }
 
     /**
      * @return The msrp
      */
-    public String getMsrp() {
+    public Float getMsrp() {
         return msrp;
     }
 
@@ -179,7 +179,7 @@ public class Product {
      * @param msrp The msrp
      */
     public void setMsrp(String msrp) {
-        this.msrp = msrp;
+        this.msrp = Float.parseFloat(msrp);
     }
 
     /**

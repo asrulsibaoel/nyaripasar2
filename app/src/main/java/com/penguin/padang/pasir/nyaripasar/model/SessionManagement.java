@@ -99,7 +99,7 @@ public class SessionManagement {
     private void setSession(User user){
         editor = sharedPreferences.edit();
         editor.putBoolean(IS_USER_LOGIN, true);
-        editor.putInt(KEY_ID, user.getId());
+        editor.putString(KEY_ID, user.getId());
         editor.putString(KEY_NAME, user.getName());
         editor.putString(KEY_EMAIL, user.getEmail());
 

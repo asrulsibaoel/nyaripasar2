@@ -110,7 +110,7 @@ public class HomeActivity extends AppCompatActivity
 
     // Here put names of group
 
-    private String[] name = { "CLOTHINGS","SHOES","SPORTS","BAGS & ACCESSORY"};
+    private String[] name = { "BAJU","SEPATU","OLAHRAGA","TAS & AKSESORIS"};
 
     @Override
     protected void onSaveInstanceState(Bundle bundle){
@@ -308,7 +308,7 @@ public class HomeActivity extends AppCompatActivity
         displayView(0);
 
 
-        // check if there is no fragment active, then set HomeFragment as the first class.
+//         check if there is no fragment active, then set HomeFragment as the first class.
 //        if(savedInstanceState == null){
 //            Fragment fragment = null;
 //            Class fragmentClass = null;
@@ -330,9 +330,24 @@ public class HomeActivity extends AppCompatActivity
 //                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 //        drawer.setDrawerListener(toggle);
 //        toggle.syncState();
-
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+//
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_home);
 //        navigationView.setNavigationItemSelectedListener(this);
+
+        Fragment fragment = getSupportFragmentManager().findFragmentById(android.R.id.content);
+
+        if(fragment == null){
+            fragment = HomeFragment.newInstance();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(android.R.id.content, fragment, "")
+                    .commit();
+        } else {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .attach(fragment)
+                    .commit();
+        }
     }
 
     @Override
@@ -421,16 +436,16 @@ public class HomeActivity extends AppCompatActivity
 
         // Adding child data
         List<String> breakfast = new ArrayList<String>();
-        breakfast.add("cloth1");
-        breakfast.add("cloth2");
-        breakfast.add("cloth3");
+        breakfast.add("baju1");
+        breakfast.add("baju2");
+        breakfast.add("baju3");
 
 
         List<String> lunch = new ArrayList<String>();
-        lunch.add("shoes1");
-        lunch.add("shoes2");
-        lunch.add("shoes3");
-        lunch.add("shoes4");
+        lunch.add("sepatu1");
+        lunch.add("sepatu2");
+        lunch.add("sepatu3");
+        lunch.add("sepatu4");
 
 
         List<String> brunch = new ArrayList<String>();
@@ -439,9 +454,9 @@ public class HomeActivity extends AppCompatActivity
 
 
         List<String> dinner = new ArrayList<String>();
-        dinner.add("bag1");
-        dinner.add("bag2");
-        dinner.add("bag3");
+        dinner.add("tas1");
+        dinner.add("tas2");
+        dinner.add("tas3");
 
 
 
@@ -532,7 +547,7 @@ public class HomeActivity extends AppCompatActivity
 
 
 
-        Toast.makeText(getBaseContext(), "You have selected Size : " + s,
+        Toast.makeText(getBaseContext(), "Anda telah memilih ukuran: " + s,
                 Toast.LENGTH_SHORT).show();
 
     }

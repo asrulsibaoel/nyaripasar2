@@ -7,7 +7,7 @@ package com.penguin.padang.pasir.nyaripasar.model;
 public class User {
 
 
-    private Integer id;
+    private String id;
 
     private String name;
 
@@ -15,7 +15,7 @@ public class User {
 
     private String image;
 
-    private Integer lapakId;
+    private String lapakId;
 
     private String description;
 
@@ -28,14 +28,14 @@ public class User {
     /**
      * @return The id
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id The id
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -84,14 +84,14 @@ public class User {
     /**
      * @return The lapakId
      */
-    public Integer getLapakId() {
+    public String getLapakId() {
         return lapakId;
     }
 
     /**
      * @param lapakId The lapak_id
      */
-    public void setLapakId(Integer lapakId) {
+    public void setLapakId(String lapakId) {
         this.lapakId = lapakId;
     }
 

@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by jowy on 7/2/16.
  */
-public class HomeFragmentPresenter implements FragmentPresenterInterface{
+public class HomeFragmentPresenter implements FragmentPresenterInterface {
 
     FragmentViewInterface view;
     private Retrofit retrofit;
@@ -31,7 +31,11 @@ public class HomeFragmentPresenter implements FragmentPresenterInterface{
 
     @Override
     public void loadData(int page) {
-        RetrofitBridge.init();
+//        RetrofitBridge.init();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constanta.SECOND_BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
         ProductAPIService apiService = retrofit.create(ProductAPIService.class);
         Call<ProductList> listProduct = apiService.getListProduct(1);
@@ -43,11 +47,11 @@ public class HomeFragmentPresenter implements FragmentPresenterInterface{
                     ProductList products = response.body();
                     List<Product> listProduct = products.getData();
 
-                    for(int i = 0; i < listProduct.size(); i++ ){
+                    for (int i = 0; i < listProduct.size(); i++) {
                         Product product = listProduct.get(i);
-                        System.out.println(product.getProductName());
+                        System.out.println(product.toString());
                     }
-                } catch (Exception e ) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
